@@ -1,0 +1,280 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Data_Scraping" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd2="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_TextRecenzie" Type="OutArgument(x:String)" />
+    <x:Property Name="in_NumeProdus" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Data_Scraping_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Data_Scraping" sap:VirtualizedContainerService.HintSize="949.2,2700.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd2:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap:VirtualizedContainerService.HintSize="553.6,2677.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.IfOpenedByAppBrowser]" DisplayName="Chrome eMAG.ro - Căutarea nu se oprește nicio" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="520,2594.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="22323bf9-e00b-4d41-ad9e-e72dfa292837" Version="V2" WindowResize="Maximize">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="518.4,2400.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd2:DataTable" Name="dt_Recenzii" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NCheckState DisplayName="Check App State 'Salut! Noi, la eMAG, do…'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="484.8,644.8" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="22323bf9-e00b-4d41-ad9e-e72dfa292837" Timeout="4" Version="V5">
+                <uix:NCheckState.IfExists>
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="449.6,252.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Accept toate'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,188.8" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="22323bf9-e00b-4d41-ad9e-e72dfa292837" Version="V5">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="emag.ro" CVScreenId="6b3bba87-21eb-4cdd-b19a-c1fbc167931a" ContentHash="TmZWikPL-UOKm1BhOoX_NQ" CvElementArea="1593, 852, 292, 49" CvTextArea="1695, 869, 90, 17" CvTextArgument="Accept toate" CvType="Button" DesignTimeRectangle="1597, 854, 287, 45" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Accept toate ' tag='BUTTON' /&gt;" Guid="31d9ba29-d929-426c-8a0c-0d2ceb453a2c" InformativeScreenshot="abe3944cb27ee12d2167383e24bcc228.png" Reference="iMvrq3nUIkGVGIdWwiDj3A/zklyJxz3gE-vMw6TAtvLGA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='eMAG.ro - Căutarea nu se oprește niciodată' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </Sequence>
+                </uix:NCheckState.IfExists>
+                <uix:NCheckState.IfNotExists>
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="449.6,94.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </uix:NCheckState.IfNotExists>
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable BrowserURL="emag.ro" ContentHash="5dyjd5GSuk2mxFX4gioI5g" DesignTimeRectangle="1585, 835, 312, 184" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div' idx='8' tag='DIV' /&gt;" Guid="bbc8f3c2-1787-4b89-99de-267d43b1bbb3" InformativeScreenshot="b723e6ec6c9b78e55466f997e070e7b5.png" Reference="iMvrq3nUIkGVGIdWwiDj3A/2X7rzDcyU02BlIAJXFgEFQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='eMAG.ro - Căutarea nu se oprește niciodată' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                </uix:NCheckState.Target>
+              </uix:NCheckState>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type input into search bar" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="484.8,249.6" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="22323bf9-e00b-4d41-ad9e-e72dfa292837" Text="[in_NumeProdus +&quot;[k(enter)]&quot;]" Version="V5">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="emag.ro" CVScreenId="e25aa6f2-40d1-4ba3-9210-d9e3a1f93229" ContentHash="jMjUtLhfDUS8bpMDtCLk4w" CvElementArea="213, 170, 1137, 49" CvType="InputBox" DesignTimeRectangle="232, 239, 1081, 43" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='searchboxTrigger' tag='INPUT' /&gt;" Guid="caf3be41-140c-43c7-9309-55339e8a3bee" InformativeScreenshot="46baa3ce081b4cbf8d2fd4ee504800cb.png" Reference="iMvrq3nUIkGVGIdWwiDj3A/zFMFVW8HZ0O_D4Y7X4vmfA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='eMAG.ro - Căutarea nu se oprește niciodată' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive" />
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="484.8,1442.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <TryCatch.Try>
+                  <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="483.2,832.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence sap:VirtualizedContainerService.HintSize="449.6,768.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'IMG'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,197.6" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="22323bf9-e00b-4d41-ad9e-e72dfa292837" Version="V5">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="emag.ro/search/Iphone%2017" ContentHash="t9TaaTDttU6LOWKSf2DlIg" DesignTimeRectangle="406, 546, 352, 353" ElementType="Icon" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl parentid='card_grid' tag='IMG' idx='1' /&gt;" Guid="f1116f96-7ea9-42b9-9c76-2f02c29c94f7" InformativeScreenshot="14f1162f225b091ed1f7e24aa9de8e3f.png" Reference="iMvrq3nUIkGVGIdWwiDj3A/V2fadLNoU0iyo00zLDP4Bw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*eMAG.ro*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dt_Recenzii]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='Recenzie'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='section' idx='14' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='6' /&gt;&lt;webctrl tag='article' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;/column&gt;&lt;/extract&gt;" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,193.6" sap2010:WorkflowViewState.IdRef="NExtractData_3" LimitExtractionTo="Rows" MaximumResults="10" ScopeIdentifier="22323bf9-e00b-4d41-ad9e-e72dfa292837" Version="V5">
+                        <uix:NExtractData.Target>
+                          <uix:TargetAnchorable BrowserURL="https://www.emag.ro/telefon-mobil-apple-iphone-17-256gb-5g-black-mg6j4zd-a/pd/DGX9FV3BM/#reviews-section" DesignTimeRectangle="9, -7848, 1901, 15076" FullSelectorArgument="&lt;webctrl id='main-container' tag='MAIN' /&gt;" Guid="aafa8f56-614f-4627-8f03-ed2833a9228e" InformativeScreenshot="0ebac2d10085f7efbdb39b32ab760a0c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Telefon mobil Apple iPhone 17, 256GB, 5G, Black - eMAG.ro' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                        </uix:NExtractData.Target>
+                      </uix:NExtractData>
+                      <ui:OutputDataTable DataTable="[dt_Recenzii]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="416,116.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[out_TextRecenzie]" />
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,169.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[out_TextRecenzie]" />
+                    </Sequence>
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="483.2,412" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,178.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;The product was not found.&quot;]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <Assign sap:VirtualizedContainerService.HintSize="449.6,169.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[out_TextRecenzie]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">["Non-existent product"]</InArgument>
+                          </Assign.Value>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Assign>
+                      </Sequence>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+                <TryCatch.Finally>
+                  <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="483.2,24.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </TryCatch.Finally>
+              </TryCatch>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.OCREngine>
+          <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+            <ActivityFunc.Argument>
+              <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+            </ActivityFunc.Argument>
+          </ActivityFunc>
+        </uix:NApplicationCard.OCREngine>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" ContentHash="4k9i1O1wKkGJYmSNzXw8iA" IconBase64="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" InformativeScreenshot="6c8d2c3ad9eb31c97f8b7616c0fb34b2.jpg" Reference="iMvrq3nUIkGVGIdWwiDj3A/b7G857WW-UKvKopd3HmlAw" Selector="&lt;html app='chrome.exe' title='*eMAG.ro*' /&gt;" Url="https://www.emag.ro/" Version="V2">
+            <uix:TargetApp.Arguments>
+              <InArgument x:TypeArguments="x:String" />
+            </uix:TargetApp.Arguments>
+            <uix:TargetApp.WorkingDirectory>
+              <InArgument x:TypeArguments="x:String" />
+            </uix:TargetApp.WorkingDirectory>
+          </uix:TargetApp>
+        </uix:NApplicationCard.TargetApp>
+      </uix:NApplicationCard>
+    </Sequence>
+  </Sequence>
+</Activity>

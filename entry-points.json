@@ -1,0 +1,47 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "entryPoints": [
+    {
+      "filePath": "Analyze_Feedback.xaml",
+      "uniqueId": "ad40c905-008e-43d7-b3b2-1611daf70045",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "in_ApiKey": {
+            "type": "string"
+          },
+          "in_TextRecenzie": {
+            "type": "string"
+          }
+        },
+        "required": []
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "out_RezultatAnaliza": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "d7fd1be8-518c-45cc-95eb-dd8f80bb56db",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "in_OrchestratorQueueName": {
+            "type": "string"
+          },
+          "in_OrchestratorQueueFolder": {
+            "type": "string"
+          }
+        },
+        "required": []
+      }
+    }
+  ]
+}
