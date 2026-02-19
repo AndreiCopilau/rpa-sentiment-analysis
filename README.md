@@ -37,8 +37,8 @@ Acest robot preia datele din coadă. Este construit pe arhitectura **UiPath ReFr
 ## Configurare și Rulare
 
 ### 1. Pre-rechizite
-- **UiPath Studio** instalat pe mașina locală.
-- Acces la **UiPath Orchestrator** (versiunea Community este suficientă).
+- **UiPath Studio** instalat.
+- Acces la **UiPath Orchestrator**.
 - O cheie API validă pentru modelul de Inteligență Artificială utilizat (ex: OpenAI API Key).
 
 ### 2. Configurarea Mediului (Setup)
@@ -58,4 +58,4 @@ Fiind două procese separate, ele trebuie rulate într-o ordine strictă:
 
  **Pasul 2: Rularea Performer-ului**
 - Deschide proiectul Performer în UiPath Studio.
-- Rulează *Main.xaml*. ReFramework-ul va prelua pe rând fiecare recenzie din coadă, o va trimite către AI și va genera fișierul Excel de output cu traducerea, sentimentul și rezumatul.
+- Rulează *Main.xaml* din folderul principal. ReFramework-ul va prelua pe rând fiecare recenzie din coadă, o va trimite către AI și va genera fișierul Excel de output cu traducerea, sentimentul și rezumatul.
