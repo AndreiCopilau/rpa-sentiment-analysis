@@ -34,6 +34,28 @@ Acest robot preia datele din coadă. Este construit pe arhitectura **UiPath ReFr
 - **API (REST)** pentru integrarea modelului AI (HTTP Requests, parsare JSON)
 - **Excel** (pentru input de produse și output raport)
 
-1. Clonează acest repository:
-   ```bash
-   git clone [https://github.com/numele-tau/numele-repo-ului.git](https://github.com/numele-tau/numele-repo-ului.git)
+## Configurare și Rulare
+
+### 1. Pre-rechizite
+- **UiPath Studio** instalat pe mașina locală.
+- Acces la **UiPath Orchestrator** (versiunea Community este suficientă).
+- O cheie API validă pentru modelul de Inteligență Artificială utilizat (ex: OpenAI API Key).
+
+### 2. Configurarea Mediului (Setup)
+1. **Orchestrator Queue:** Crează o coadă (Queue) nouă în UiPath Orchestrator (ex: `eMAG_ReviewsQueue`).
+2. **Setări Config.xlsx:**
+   - Navighează în folderul Performerului la `Data/Config.xlsx`.
+   - În sheet-ul `Settings`, actualizează valoarea `OrchestratorQueueName` cu numele cozii create la pasul anterior.
+   - Înlocuiește textul `Your API Key` cu cheia ta reală pentru AI.
+
+### 3. Ordinea de Rulare a Roboților
+Fiind două procese separate, ele trebuie rulate într-o ordine strictă:
+
+ **Pasul 1: Rularea Dispatcher-ului**
+- Deschide proiectul Dispecer_proiect în UiPath Studio.
+- Rulează fisierul *Main.xaml*. Acesta va deschide eMAG, va extrage recenziile și le va încărca în coada din Orchestrator.
+- Așteaptă finalizarea procesului (verifică în Orchestrator dacă au apărut elemente noi cu statusul *New*).
+
+ **Pasul 2: Rularea Performer-ului**
+- Deschide proiectul Performer în UiPath Studio.
+- Rulează *Main.xaml*. ReFramework-ul va prelua pe rând fiecare recenzie din coadă, o va trimite către AI și va genera fișierul Excel de output cu traducerea, sentimentul și rezumatul.
